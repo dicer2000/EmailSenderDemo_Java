@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/brett/Documents/Summertime/Clients/Principia/220-ProgrammingLanguages/Testing/Java/Libs/core.jar"
+    ]
+}
