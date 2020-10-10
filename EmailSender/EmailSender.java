@@ -49,7 +49,7 @@ public class EmailSender {
         }
     }
 
-
+    // Process the email with just the main thread
     private void processWithMainThread() {
 
         for (Email item : l1) {
@@ -57,6 +57,7 @@ public class EmailSender {
         }
     }
 
+    // Fill the array with data
     private void fillArray() {
         for(int i=0; i < 1000; i++) {
             // Add a nonsensical string to each
@@ -69,16 +70,18 @@ public class EmailSender {
         }
     }
 
+    // Simulate sending the email
     private boolean sendEmail(Email em) {
         String strName = em.Name;
         String strToField = em.ToEmail;
         String strSubj = em.Subject;
         String strBody = em.Body;
-        try { Thread.sleep(10); }
+        try { Thread.sleep(1); }
         catch (InterruptedException e) {}
         return true;
     }
 
+    // Print out the menu
     private void showMainMenu() {
         // Clear the screen
 //        System.out.print("\033[H\033[2J");  
@@ -89,6 +92,7 @@ public class EmailSender {
         System.out.println("q - Quit");
     }
 
+    // Make alphanumeric jiberish data 
     private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     public static String randomAlphaNumeric(int count) {
         StringBuilder builder = new StringBuilder();
@@ -100,13 +104,25 @@ public class EmailSender {
         return "";
     }
 
+    // Process the email with threads
     private void processWithThreadQueue() {
         EmailThread T1 = new EmailThread();
-        EmailThread T2 = new EmailThread();
+        EmailThread T2 = new EmailThread();        
+        EmailThread T3 = new EmailThread();
+        EmailThread T4 = new EmailThread();        
+        EmailThread T5 = new EmailThread();
+        EmailThread T6 = new EmailThread();
         T1.start();
         T2.start();
+        T3.start();
+        T4.start();
+        T5.start();
+        T6.start();
     }
 
+    // Use a fresh thread to process the email
+    // Note that each thread doesn't know that it's
+    // not the only one processing
     private static class EmailThread extends Thread {
         public void run() {
             Email email = null;
@@ -117,12 +133,12 @@ public class EmailSender {
                     email = l1.get(nextItemNo);
                     EmailSender.nextItemNo++;
                 }
-                String strName = email.Name;
                 String strToField = email.ToEmail;
                 String strSubj = email.Subject;
                 String strBody = email.Body;
                 try { Thread.sleep(10); }
                 catch (InterruptedException e) {}
+
             }
             System.out.println("Thread complete");
         }

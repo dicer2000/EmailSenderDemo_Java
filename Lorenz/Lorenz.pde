@@ -1,5 +1,15 @@
 /* FINAL SKETCH FOR LORENZ ATTRACTOR 
 
+To install Processing:
+Open Processing, and click the Tools -> Install “processing-java” menu item.
+Install the processing-vscode 117 extension
+Open your sketch folder in VS Code
+NOT just the .pde file, like you would do from the Processing IDE
+run Processing: Create Task File
+Cmd-P + > + Create Task File
+Run project: Cmd-Shift P
+
+
 dx / dt = a (y - x)
 dy / dt = x (b - z) - y
 dz / dt = xy - c z
@@ -53,7 +63,7 @@ void draw()
 	beginShape(); 
 	for (PVector v : points) { 
 		// Adding random color to the structure in each frame 
-		stroke(random(0, 255), random(0, 255), random(0, 255)); 
+		stroke(255,0,0,255);	//random(0, 255), random(0, 255), random(0, 255)); 
 		vertex(v.x, v.y, v.z); // plotting the vertices 
 	} 
 	endShape(); // Drawing ends 

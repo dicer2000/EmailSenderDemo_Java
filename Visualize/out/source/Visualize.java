@@ -23,7 +23,7 @@ public void setup() {
   
   orientation(LANDSCAPE);
   sprite = loadImage("sprite.png");
-  ps = new ParticleSystem(10000);
+  ps = new ParticleSystem(1000);
 
   // Writing to the depth buffer is disabled to avoid rendering
   // artifacts due to the fact that the particles are semi-transparent
@@ -34,8 +34,11 @@ public void setup() {
 public void draw () {
   background(0);
 
-  image(sprite, 100, 10);
-  /*
+  // Step 1 - show just image
+   image(sprite, 100, 10);
+
+  // Step 2 - Show whole emitter system
+  
   ps.update();
   ps.display();
   
@@ -43,8 +46,8 @@ public void draw () {
   
   fill(255);
   textSize(16);
-  text("Frame rate: " + int(frameRate), 10, 20);
-  */
+  text("Frame rate: " + PApplet.parseInt(frameRate), 10, 20);
+  
 }
 
 

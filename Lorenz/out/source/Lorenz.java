@@ -71,7 +71,7 @@ public void draw()
 	beginShape(); 
 	for (PVector v : points) { 
 		// Adding random color to the structure in each frame 
-		stroke(random(0, 255), random(0, 255), random(0, 255)); 
+		stroke(255,0,0,255);	//random(0, 255), random(0, 255), random(0, 255)); 
 		vertex(v.x, v.y, v.z); // plotting the vertices 
 	} 
 	endShape(); // Drawing ends 
